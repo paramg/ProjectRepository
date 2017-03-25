@@ -34,26 +34,7 @@ namespace Design.Libraries.PriorityCalendar
             }
 
             return canBookMeeting;
-        }
-
-        public bool ManageConflict(PriorityMeeting meetingRequest, PriorityMeetingCollection currentPriortyMeetings)
-        {
-            bool canSetupMeeting = false;
-
-            foreach(var meeting in currentPriortyMeetings)
-            {
-                if(meetingRequest.Priority > meeting.Priority)
-                {
-                    // Slice out the current meeting and replace with the new one.
-                    this.PriorityMeetings.Remove(meeting);
-
-                    this.SliceIfPossible(meetingRequest, meeting);
-                    canSetupMeeting = true;
-                }
-            }
-
-            return canSetupMeeting;
-        }
+        }        
 
         public void SliceIfPossible(PriorityMeeting requestMeeting, PriorityMeeting currentMeeting)
         {            
@@ -102,6 +83,25 @@ namespace Design.Libraries.PriorityCalendar
 
                 this.PriorityMeetings.Add(priorityMeeting2);
             }
+        }
+
+        private bool ManageConflict(PriorityMeeting meetingRequest, PriorityMeetingCollection currentPriortyMeetings)
+        {
+            bool canSetupMeeting = false;
+
+            foreach (PriorityMeeting meeting in currentPriortyMeetings)
+            {
+                if (meetingRequest.Priority > meeting.Priority)
+                {
+                    // Slice out the current meeting and replace with the new one.
+                    this.PriorityMeetings.Remove(meeting);
+
+                    this.SliceIfPossible(meetingRequest, meeting);
+                    canSetupMeeting = true;
+                }
+            }
+
+            return canSetupMeeting;
         }
 
         private int Compare(DateTime dateTime1, DateTime dateTime2)

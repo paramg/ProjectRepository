@@ -10,8 +10,6 @@ namespace Design.Libraries.PriorityCalendar
     {
         bool BookMeeting(PriorityMeeting meetingRequest);
 
-        bool ManageConflict(PriorityMeeting meetingRequest, PriorityMeetingCollection currentPriortyMeetings);
-
         void SliceIfPossible(PriorityMeeting requestMeeting, PriorityMeeting currentMeeting);
     }
 }
