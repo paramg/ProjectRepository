@@ -68,14 +68,15 @@ namespace Design.Libraries.LRUCache
             {
                 this.head = newElement;
                 this.rear = newElement;
-                return;
             }
-
-            // Insert the new element to the head.
-            newElement.Next = this.head;
-            newElement.Previous = null;
-            this.head = newElement;
-
+            else
+            {
+                // Insert the new element to the head.
+                newElement.Next = this.head;
+                newElement.Previous = null;
+                this.head = newElement;
+            }
+            
             this.Counter += 1;
 
             // Add to the cache.

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm.Libraries.Heap", "Algorithm.Libraries.Heap.csproj", "{668F095A-10D6-46DC-AE72-55F5101EEC55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Libraries.Heap", "Heap\DataStructures.Libraries.Heap.csproj", "{668F095A-10D6-46DC-AE72-55F5101EEC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Libraries.Graph", "Graph\DataStructures.Libraries.Graph.csproj", "{6EB3565B-2658-42A7-80CB-223B6E42013A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{668F095A-10D6-46DC-AE72-55F5101EEC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{668F095A-10D6-46DC-AE72-55F5101EEC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{668F095A-10D6-46DC-AE72-55F5101EEC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
