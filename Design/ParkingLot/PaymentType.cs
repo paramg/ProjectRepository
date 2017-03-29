@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Design.Libraries.ParkingLot
 {
-    public interface IPaymentService
+    public enum PaymentType
     {
-        bool PayByCash(decimal amount);
-
-        bool PayByCard(decimal amount, dynamic cardInformation);
+        None, PayByCash, PayByCard
     }
 }

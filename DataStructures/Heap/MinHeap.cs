@@ -8,6 +8,11 @@ namespace Algorithm.Libraries.Heap
 {
     public class MinHeap<TKey, TObject> : Heap<TKey, TObject>
     {
+        public MinHeap(int size = DefaultHeapSize, HeapType heapType = HeapType.MinHeap)
+            : base(size, heapType)
+        {
+        }
+
         public override void SiftDownOperation()
         {
             // Always start at the root node of the heap.

@@ -18,14 +18,10 @@ namespace Algorithm.Libraries.Heap
         // Use the heap object to heapify the collection.
         public TKey[] HeapObject;
 
-        public Dictionary<TKey, TObject> dict;
-
         public Heap(int size = DefaultHeapSize, HeapType heapType = HeapType.MinHeap)  
         {
             this.HeapSize = size;
             this.HeapType = heapType;
-
-            this.dict = new Dictionary<TKey, TObject>();
         }
 
         public abstract void SiftUpOperation();
@@ -34,8 +30,6 @@ namespace Algorithm.Libraries.Heap
 
         public void Insert(TKey key, TObject value)
         {
-            this.dict.Add(key, value);
-
             this.HeapObject[this.counter] = key;
 
             // Heapify using Sift up operation.
@@ -43,9 +37,9 @@ namespace Algorithm.Libraries.Heap
             this.counter += 1;
         }
 
-        public TObject GetAndDelete()
+        public TKey Delete()
         {
-            TKey keyValue = this.HeapObject[0];
+            TKey keyValue = this.Get();
 
             // Delete the root node from the heap.
             this.HeapObject[0] = this.HeapObject[this.counter];
@@ -54,11 +48,14 @@ namespace Algorithm.Libraries.Heap
             // Heapify using Sift down operation.
             this.SiftDownOperation();
 
-            // Remove the value from the dictionary.
-            TObject valueObject = this.dict[keyValue];
-            this.dict.Remove(keyValue);
+            return keyValue;
+        }
 
-            return valueObject;
+        public TKey Get()
+        {
+            TKey keyValue = this.HeapObject[0];
+
+            return keyValue;
         }
         
         protected int FindParent(int position)

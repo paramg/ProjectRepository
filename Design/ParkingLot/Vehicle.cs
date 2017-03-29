@@ -8,6 +8,8 @@ namespace Design.Libraries.ParkingLot
 {
     public class Vehicle
     {
+        public bool IsRegisteredDisability { get; set; }
+
         public VehicleType VehicleType { get; set; }
 
         public string VehicleIdentificationNumber { get; set; }

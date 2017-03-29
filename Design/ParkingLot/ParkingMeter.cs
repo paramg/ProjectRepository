@@ -10,19 +10,20 @@ namespace Design.Libraries.ParkingLot
     {
         public IPaymentService PaymentService { get; set; }
 
-        public const int AmountPerHour = 10;
+        public const decimal AmountPerHour = 10.0M;
 
-        public bool PayCard(int numberOfHours)
+        public decimal GetAmountByDuration(int duration)
         {
-            int amount = numberOfHours * AmountPerHour;
+            return AmountPerHour * duration;
+        }
 
+        public bool PayCard(decimal amount)
+        {
             return this.PaymentService.PayByCard(amount, null);
         }
 
-        public bool PayCash(int numberOfHours)
-        {
-            int amount = numberOfHours * AmountPerHour;
-
+        public bool PayCash(decimal amount)
+        { 
             return this.PaymentService.PayByCash(amount);
         }
     }
