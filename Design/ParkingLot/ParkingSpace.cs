@@ -21,5 +21,7 @@ namespace Design.Libraries.ParkingLot
         public int DistanceFromGate { get; set; }
 
         public bool IsAvailable { get; set; }
+
+        public DateTime EntryTime { get; set; }
     }
 }

@@ -32,9 +32,10 @@ namespace Design.Libraries.ParkingLot
                 parkingSpace.DistanceFromGate = ParkingLot.DistanceFromPoleGate + i;
                 parkingSpace.Vehicle.VehicleType = VehicleType.Compact;
                 parkingSpace.ParkingNumber = ParkingLot.ParkingNumberStarIndex + i;
-                
+                parkingSpace.EntryTime = DateTime.Now;
+
                 // Assign three parking space for reserved.
-                if(i == 0 || i == 1 || i == 2)
+                if (i == 0 || i == 1 || i == 2)
                 {
                     parkingSpace.IsReservedSpace = true;
                 }
@@ -52,7 +53,7 @@ namespace Design.Libraries.ParkingLot
             if (!vehicle.IsRegisteredDisability)
             {
                 // By default the reserved space will be picked as this is high pri in the queue.
-                while (space.IsReservedSpace)
+                while (space != null && space.IsReservedSpace)
                 {
                     space = this.AvailableSpaces.Get();
                 }
@@ -72,8 +73,26 @@ namespace Design.Libraries.ParkingLot
             return space;
         }
 
-        public void Pay(int durationInHours, PaymentType paymentType)
+        public bool ExitParkingLot(ParkingSpace space)
         {
+            this.AvailableSpaces.Insert(space.DistanceFromGate, space);
+
+            // Pay parking fee.
+            ParkingTicket parkingTicket = this.Pay(space, PaymentType.PayByCard);
+
+            // Validate the parking ticket during exit.
+            if(parkingTicket.Validate())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public ParkingTicket Pay(ParkingSpace space, PaymentType paymentType)
+        {
+            int durationInHours = DateTime.Now.Subtract(space.EntryTime).Hours;
+
             decimal amount = this.ParkingMeter.GetAmountByDuration(durationInHours);
 
             if(paymentType == PaymentType.PayByCard)
@@ -88,6 +107,8 @@ namespace Design.Libraries.ParkingLot
             {
                 throw new NotSupportedException("Payment type unknown.");
             }
+
+            return new ParkingTicket { DurationInHours = durationInHours, ParkTime = space.EntryTime, AmountPaid = amount};
         }
     }
 }

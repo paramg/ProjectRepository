@@ -78,7 +78,6 @@ namespace DataStructures.Libraries.Graph
                 {
                     this.DFS(v);
 
-                    this.TopologicalOrderStack.Push(v.node);
 
                     if (!this.DfsList.Contains(v))
                     {
@@ -86,6 +85,8 @@ namespace DataStructures.Libraries.Graph
                     }
                 }
             }
+
+            this.TopologicalOrderStack.Push(vertex.node);
         }
     }
 }
