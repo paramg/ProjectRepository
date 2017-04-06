@@ -37,14 +37,16 @@ namespace Algorithms.Problem.BinaryTree
                 return null;
             }
 
+            // Return the root if there is one match.
             if (root.Value == node1.Value || root.Value == node2.Value)
             {
                 return root;
             }
 
-            BinaryTreeNode leftNode = FindLowestCommonAncestor(root.Left, node1, node2);
-            BinaryTreeNode rightNode = FindLowestCommonAncestor(root.Right, node1, node2);
+            BinaryTreeNode leftNode = this.FindLowestCommonAncestor(root.Left, node1, node2);
+            BinaryTreeNode rightNode = this.FindLowestCommonAncestor(root.Right, node1, node2);
 
+            // LCA found...if both nodes left and right sends not null.
             if (leftNode != null && rightNode != null)
             {
                 return root;

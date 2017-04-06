@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectNextNode.cs" />
     <Compile Include="LevelSpiralOrder.cs" />
     <Compile Include="LowestCommonAncestor.cs" />
+    <Compile Include="PathRootToLeaf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
