@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStructures", "{B2A3848C-3D95-4B7D-8247-227C7F9A2308}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures.Dependencies", "DataStructures.Dependencies", "{B2A3848C-3D95-4B7D-8247-227C7F9A2308}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problem.BinarySearchTree", "Trees\Algorithms.Problem.BinarySearchTree.csproj", "{4E1F8D95-0BD5-4CA2-A116-56005544A96B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Libraries.Trees", "..\DataStructures\Trees\DataStructures.Libraries.Trees.csproj", "{845E0CA8-AC51-4BAE-95D7-60680CB4A44B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problem.BinaryTree", "BinaryTree\Algorithms.Problem.BinaryTree.csproj", "{4A8C3BE7-A268-451A-9B8F-234ED3789866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problem.Arrays", "Arrays\Algorithms.Problem.Arrays.csproj", "{AC223693-B652-483D-A17B-A7A3C2E7BBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problem.Strings", "Strings\Algorithms.Problem.Strings.csproj", "{EF581F2B-BBBC-48E2-A6A6-A0E6077A3812}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{4A8C3BE7-A268-451A-9B8F-234ED3789866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A8C3BE7-A268-451A-9B8F-234ED3789866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A8C3BE7-A268-451A-9B8F-234ED3789866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC223693-B652-483D-A17B-A7A3C2E7BBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC223693-B652-483D-A17B-A7A3C2E7BBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC223693-B652-483D-A17B-A7A3C2E7BBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC223693-B652-483D-A17B-A7A3C2E7BBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF581F2B-BBBC-48E2-A6A6-A0E6077A3812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF581F2B-BBBC-48E2-A6A6-A0E6077A3812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF581F2B-BBBC-48E2-A6A6-A0E6077A3812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF581F2B-BBBC-48E2-A6A6-A0E6077A3812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
