@@ -22,25 +22,23 @@ namespace Algorithms.Problem.Arrays
             {
                 return this.FindKthLargestElementInArray(array, pivot + 1, array.Length - 1, kValue);
             }
-            else
-            {
-                return array[pivot];
-            }
+
+            return array[pivot];
         }
 
-        private int FindPivotValue(int firstIndex, int indexLast, int[] array )
+        private int FindPivotValue(int firstIndex, int lastIndex, int[] array )
         {
             // alternatively, we can take even the mid point value
-            int partitionIndex = new Random().Next(firstIndex, indexLast);
+            int partitionIndex = new Random().Next(firstIndex, lastIndex);
             
             // choose the partition value and swap with the last index value.
             int temp = array[partitionIndex];
-            array[partitionIndex] = array[indexLast];
-            array[indexLast] = temp;
+            array[partitionIndex] = array[lastIndex];
+            array[lastIndex] = temp;
 
-            for(int i= firstIndex; i< indexLast; i++)
+            for(int i= firstIndex; i< lastIndex; i++)
             {
-                if(array[i] > array[indexLast])
+                if(array[i] > array[lastIndex])
                 {
                     int temp1 = array[i];
                     array[i] = array[firstIndex];
@@ -52,8 +50,8 @@ namespace Algorithms.Problem.Arrays
 
             // Swap the parition back to originial place
             int temp2 = array[firstIndex];
-            array[firstIndex] = array[indexLast];
-            array[indexLast] = temp2;
+            array[firstIndex] = array[lastIndex];
+            array[lastIndex] = temp2;
 
             return firstIndex;
         }

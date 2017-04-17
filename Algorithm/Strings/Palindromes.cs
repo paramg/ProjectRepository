@@ -14,6 +14,49 @@ namespace Algorithms.Problem.Strings
         {
         }
 
+        public int FindLongestPalindromeTrivial(string palindromeString)
+        {
+            // odd length.
+            int longPalindrome = 1;
+            int palindromeLength = 0;
+
+            int start = 0;
+            int end = 0;
+
+            for(int i=0; i< palindromeString.Length - 1; i++)
+            {
+                start = i;
+                end = i + 1;
+
+                while (start > 0 && end <= palindromeString.Length - 1 &&
+                    palindromeString[start] == palindromeString[end])
+                {
+                    start--;
+                    end++;
+
+                    palindromeLength += 2;
+                }
+
+                longPalindrome = Math.Max(longPalindrome, palindromeLength);
+
+                start = i - 1;
+                end = i + 1;
+
+                palindromeLength = 1;
+                while (start > 0 && end <= palindromeString.Length - 1 &&
+                    palindromeString[start] == palindromeString[end])
+                {
+                    start--;
+                    end++;
+
+                    palindromeLength += 2;
+                }
+
+                longPalindrome = Math.Max(longPalindrome, palindromeLength);
+            }
+
+            return longPalindrome;
+        }
         
         public int FindMaximumPalindromeString(string palindromeString)
         {
@@ -91,7 +134,7 @@ namespace Algorithms.Problem.Strings
         {
             string palindromeString = "abbababba";
 
-            int longestPalindrome = this.longestPalindromeSubstringEasy(palindromeString.ToCharArray());
+            int longestPalindrome = this.FindMaximumPalindromeString(palindromeString);
 
             Assert.AreEqual(longestPalindrome, 9);
         }
