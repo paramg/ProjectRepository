@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FindMaxOccuranceInMatrix.cs" />
     <Compile Include="MergeSets.cs" />
     <Compile Include="FindInMatrix.cs" />
     <Compile Include="KthLargestElement.cs" />
