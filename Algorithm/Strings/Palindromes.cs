@@ -17,45 +17,50 @@ namespace Algorithms.Problem.Strings
         public int FindLongestPalindromeTrivial(string palindromeString)
         {
             // odd length.
-            int longPalindrome = 1;
-            int palindromeLength = 0;
+            int longestPalindrome = 1;
+            int currentPalindromeLength = 0;
 
             int start = 0;
             int end = 0;
 
-            for(int i=0; i< palindromeString.Length - 1; i++)
+            for(int i=0; i< palindromeString.Length; i++)
             {
+                // validate for even palindrome 
+                // eg: {a,b,b,a}
                 start = i;
                 end = i + 1;
 
-                while (start > 0 && end <= palindromeString.Length - 1 &&
+                while (start >= 0 && end < palindromeString.Length &&
                     palindromeString[start] == palindromeString[end])
                 {
                     start--;
                     end++;
 
-                    palindromeLength += 2;
+                    currentPalindromeLength += 2;
                 }
 
-                longPalindrome = Math.Max(longPalindrome, palindromeLength);
+                longestPalindrome = Math.Max(longestPalindrome, currentPalindromeLength);
 
+                // validate for odd palindrome
+                // eg: {a,b,a}
                 start = i - 1;
                 end = i + 1;
 
-                palindromeLength = 1;
-                while (start > 0 && end <= palindromeString.Length - 1 &&
+                // initialize to 1 for odd palindrome.
+                currentPalindromeLength = 1;
+                while (start >= 0 && end < palindromeString.Length - 1 &&
                     palindromeString[start] == palindromeString[end])
                 {
                     start--;
                     end++;
 
-                    palindromeLength += 2;
+                    currentPalindromeLength += 2;
                 }
 
-                longPalindrome = Math.Max(longPalindrome, palindromeLength);
+                longestPalindrome = Math.Max(longestPalindrome, currentPalindromeLength);
             }
 
-            return longPalindrome;
+            return longestPalindrome;
         }
         
         public int FindMaximumPalindromeString(string palindromeString)
@@ -67,7 +72,7 @@ namespace Algorithms.Problem.Strings
             for(int i=0; i < palindromeString.Length -1;)
             { 
                 // alg to validate that the string is palindrome or not.
-                while(start > 0 && end < palindromeString.Length - 1 
+                while(start > 0 && end < palindromeString.Length
                         && palindromeString[start - 1] == palindromeString[end + 1])
                 {
                     start--;
@@ -87,7 +92,8 @@ namespace Algorithms.Problem.Strings
                 int newCenter = end + 1;
 
                 /// If the new center is not the edge and it is between the current center and right edge (end)
-                /// In this case we have to choose what is next center
+                /// In this case we have to find what is next center
+                /// Choose the new center such that it expands till the right edge.
                 /// j = i+1 = Evaluate if j can be next center.
                 for (int j = i + 1; j <= end; j++)
                 {
@@ -134,7 +140,7 @@ namespace Algorithms.Problem.Strings
         {
             string palindromeString = "abbababba";
 
-            int longestPalindrome = this.FindMaximumPalindromeString(palindromeString);
+            int longestPalindrome = this.FindLongestPalindromeTrivial(palindromeString);
 
             Assert.AreEqual(longestPalindrome, 9);
         }

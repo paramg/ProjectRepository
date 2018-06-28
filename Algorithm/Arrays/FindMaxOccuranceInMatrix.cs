@@ -28,13 +28,15 @@ namespace Algorithms.Problem.Arrays
             int maxNumberOfOnes = 0;
 
             for(int row=0; row< rowLen; row++)
-            {        
-                for (int col = colStart -1; col >= 0; col--)
+            {
+                int currCol = colStart - 1;
+
+                for (; currCol >= 0; currCol--)
                 {
-                    if(matrix[row, col] == 1)
+                    if(matrix[row, currCol] == 1)
                     {
                         maxNumberOfOnes += 1;
-                        colStart = col;
+                        colStart = currCol;
                     }
                     else
                     {
@@ -46,6 +48,11 @@ namespace Algorithms.Problem.Arrays
                 {
                     output.NumberOfOnes = maxNumberOfOnes;
                     output.rowNumber = row;
+                }
+
+                if(currCol == 0)
+                {
+                    break;
                 }
             }
 
