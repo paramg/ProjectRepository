@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetMiddleElementConstantTimeProblem.cs" />
     <Compile Include="MinValueInConstantTime.cs" />
     <Compile Include="NextGreaterElementInArray.cs" />
     <Compile Include="ParanthesisProblem.cs" />

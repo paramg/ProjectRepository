@@ -57,8 +57,10 @@ namespace Algorithms.Problem.InterviewCake
         public void LongArrayTest()
         {
             // var numbers = new int[] { 4, 1, 4, 8, 3, 2, 7, 6, 5 };
-            var numbers = new int[] { 5, 8, 4, 1, 3, 2, 7, 6, 8 };
-            var expected = 8;
+            // var numbers = new int[] { 5, 8, 4, 1, 3, 2, 7, 6, 8 };
+
+            var numbers = new int[] { 1, 3, 9, 8, 4, 6, 1, 2, 5, 7 };
+            var expected = 1;
             var actual = FindRepeat(numbers);
             Assert.AreEqual(expected, actual);
         }

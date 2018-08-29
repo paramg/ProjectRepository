@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problems.LeetCod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Problem.InterviewCake", "InterviewCake\Algorithms.Problem.InterviewCake.csproj", "{9618162B-F6BE-4E79-A256-8B2D34AE7F46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Libraries.Graph", "..\DataStructures\Graph\DataStructures.Libraries.Graph.csproj", "{6EB3565B-2658-42A7-80CB-223B6E42013A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,11 +181,28 @@ Global
 		{9618162B-F6BE-4E79-A256-8B2D34AE7F46}.Release|x64.Build.0 = Release|Any CPU
 		{9618162B-F6BE-4E79-A256-8B2D34AE7F46}.Release|x86.ActiveCfg = Release|Any CPU
 		{9618162B-F6BE-4E79-A256-8B2D34AE7F46}.Release|x86.Build.0 = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|x64.Build.0 = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Debug|x86.Build.0 = Debug|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|ARM.Build.0 = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|x64.ActiveCfg = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|x64.Build.0 = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|x86.ActiveCfg = Release|Any CPU
+		{6EB3565B-2658-42A7-80CB-223B6E42013A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{845E0CA8-AC51-4BAE-95D7-60680CB4A44B} = {B2A3848C-3D95-4B7D-8247-227C7F9A2308}
+		{6EB3565B-2658-42A7-80CB-223B6E42013A} = {B2A3848C-3D95-4B7D-8247-227C7F9A2308}
 	EndGlobalSection
 EndGlobal
