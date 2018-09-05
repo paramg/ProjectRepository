@@ -15,6 +15,42 @@ namespace Algorithms.Problem.Arrays
         }
 
         /// <summary>
+        /// Returns the three sum
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public List<int[]> FindThreeSumUsingHash(int[] input)
+        {
+            List<int[]> result = new List<int[]>();
+            HashSet<int> hashSet = new HashSet<int>();
+
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+                for (int j = i + 1; j < input.Length; j++)
+                {
+                    int k = - (input[i] + input[j]);
+
+                    if (hashSet.Contains(k))
+                    {
+                        int[] result1 = new int[3];
+
+                        result1[0] = input[i];
+                        result1[1] = input[j];
+                        result1[2] = k;
+
+                        result.Add(result1);
+                    }
+                    else
+                    {
+                        hashSet.Add(input[j]);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Make sure the input is sorted.
         /// Start from first index and have two pointers = start and end. 
         /// Sum = arr[i] + arr[start] + arr[end] == 0 if yes, add to the list otherwise
@@ -22,61 +58,58 @@ namespace Algorithms.Problem.Arrays
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public List<int[]> FindThreeSum(int[] input)
+        public IList<IList<int>> FindThreeSum(int[] nums)
         {
-            List<int[]> output = new List<int[]>();
+            IList<IList<int>> finalResult = new List<IList<int>>();
+            List<int> input = new List<int>(nums);
+            input.Sort();
 
-            int nextIndex;
-            int lastIndex;
-
-            for(int i=0; i< input.Length -3; i++)
+            for(int i=0; i< input.Count -2; i++)
             {
-                int value = input[i];
+                int j = i + 1;
+                int k = input.Count - 1;
 
-                nextIndex = i + 1;
-                lastIndex = input.Length - 1;
-
-                while(lastIndex > nextIndex)
+                while( j< k)
                 {
-                    int inverseValue = input[nextIndex] + input[lastIndex] * (-1);
+                    int intermediateResult = input[i] + input[j] + input[k];
 
-                    if (value < inverseValue)
+                    // Found answer.
+                    if (intermediateResult == 0)
                     {
-                        while (input[nextIndex] != input[nextIndex + 1]);
-                        {
-                            nextIndex++;
-                        }
+                        List<int> answer = new List<int>();
+                        answer.Add(input[i]);
+                        answer.Add(input[j]);
+                        answer.Add(input[k]);
+
+                        finalResult.Add(answer.ToList());
+
+                        j = j + 1;
+                        k = k - 1;
                     }
-                    else if (value > inverseValue)
+                    else if (intermediateResult < 0)
                     {
-                        lastIndex--;
+                        j = j + 1;
                     }
                     else
                     {
-                        int[] resultArray = new int[3];
-
-                        resultArray[0] = input[i];
-                        resultArray[1] = input[nextIndex];
-                        resultArray[2] = input[lastIndex];
-
-                        output.Add(resultArray);
-
-                        break;
+                        k = k - 1;
                     }
                 }
             }
 
-            return output;
+            return finalResult;
         }
 
         [TestMethod]
         public void TestFindingThreeSum()
         {
-            int[] input = { -1, 0, 1, 2, -1 ,-4};
+            // int[] input = { -1, 0, 1, 2, -1 ,-4};
             // result = {-1, -1, 2}
             //          {-1, 0, 1}
 
-
+            int[] expectedResult = { 0, -1, 1}; 
+            int[] input = { -1, 0, 1, 2, -1, -4 };// { 0 , -1, 2, -3, 1};
+            IList<IList<int>> result = this.FindThreeSum(input);
         }
     }
 }
