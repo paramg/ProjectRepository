@@ -25,6 +25,49 @@ namespace LeetCode.MeetingRoom
             return true;
         }
 
+        public List<Meeting> InsertMeeting(List<Meeting> meetings, Meeting newMeeting)
+        {
+            meetings.Sort();
+            List<Meeting> resultMeeting = new List<Meeting>();
+
+            // In this for-loop just loop through the meetings and add only the current meeting to the list.
+            // the new meeting can either be inserted in the start, middle or end. 
+            // if the new meeting has to be inserted in the middle instead of current meeting, change the current meeting to new meeting
+            // if there is a conflict, merge the meeting and set to the new meeting.
+            // at the end at least one meeting is left to add if there is conflict or new meeting is inserted in the middle.
+            // add to the end.
+            foreach(Meeting currentMeeting in meetings)
+            {
+                if (currentMeeting.EndTime < newMeeting.StartTime)
+                {
+                    resultMeeting.Add(currentMeeting);
+                }
+                else if (currentMeeting.StartTime > newMeeting.EndTime)
+                {
+                    resultMeeting.Add(newMeeting);
+
+                    // newmeeting is set to currentmeeting so that in next iteration the currentmeeting can be added to the result.
+                    newMeeting = currentMeeting;
+                }
+                else if (currentMeeting.EndTime > newMeeting.StartTime)
+                {
+                    int startTime = Math.Min(currentMeeting.StartTime, newMeeting.StartTime);
+                    int endTime = Math.Max(currentMeeting.EndTime, newMeeting.EndTime);
+
+                    Meeting meeting = new Meeting(startTime, endTime);
+
+                    // merge the new meeting with current meeting, dont add yet because there could be more meetings to be merged.
+                    // once this condition is not met, then you can add the new meeting to the end.
+                    newMeeting = meeting;
+                }
+            }
+
+            // after exit of the loop, the new meeting is still not added to the list. 
+            resultMeeting.Add(newMeeting);
+
+            return resultMeeting;
+        }
+
         /// <summary>
         /// Return the merged meetings.
         /// </summary>

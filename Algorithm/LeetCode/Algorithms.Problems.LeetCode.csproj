@@ -47,6 +47,7 @@
     <Compile Include="Arrays\AddTwoNumbersProblem.cs" />
     <Compile Include="Arrays\ClockSum.cs" />
     <Compile Include="Arrays\LengthOfLongestSubStringProblem.cs" />
+    <Compile Include="Arrays\SearchInArrays.cs" />
     <Compile Include="Arrays\TwoSumProblem.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
     <Compile Include="LinkedList\MergeTwoLists.cs" />
