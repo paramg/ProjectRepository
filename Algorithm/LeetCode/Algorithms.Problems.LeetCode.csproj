@@ -53,6 +53,7 @@
     <Compile Include="LinkedList\MergeTwoLists.cs" />
     <Compile Include="LinkedList\RemoveNthNodeFromList.cs" />
     <Compile Include="Matrix\RotationMatrix.cs" />
+    <Compile Include="Matrix\WordSearchProblem.cs" />
     <Compile Include="MeetingRoom\Meeting.cs" />
     <Compile Include="MeetingRoom\MeetingRoomProblems.cs" />
     <Compile Include="PlayGround.cs" />

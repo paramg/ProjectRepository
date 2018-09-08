@@ -1,15 +1,20 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     [TestClass]
     public class SearchInArrays
     {
+        public int SearchInRotatedSortedArray_Improved(int[] array, int target)
+        {
+            return -1;
+        }
+
         /// <summary>
         /// Rotated sorted array.
         /// In Rotated sorted array, there is a point where a value is less than previous value.
@@ -99,30 +104,7 @@ namespace LeetCode.Arrays
         }
 
         public void SearchForRangeInArray()
-        { }
-
-        /// <summary>
-        /// Not good impl as it's o(n).
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
-        public int SearchInsertPositionInArray(int[] array, int target)
         {
-            int counter = 0;
-            while (counter < array.Length)
-            {
-                if (array[counter] < target)
-                {
-                    counter += 1;
-                }
-                else if (array[counter] == target || array[counter] > target)
-                {
-                    return counter;
-                }
-            }
-
-            return counter;
         }
 
         /// <summary>
