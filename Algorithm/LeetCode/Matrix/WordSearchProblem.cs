@@ -82,8 +82,8 @@ namespace LeetCode.Matrix
                 int cold = col + colDir[i];
 
                 if (!(rowd < 0 || cold < 0 || rowd >= matrix.GetLength(0) || cold >= matrix.GetLength(1)) // check for boundaries. 
-                    && matrix[rowd, cold] == word[wordCount]
-                    && !visitedArray[rowd, cold]) 
+                    && matrix[rowd, cold] == word[wordCount] // check for char that matches 
+                    && !visitedArray[rowd, cold])  // check if it's already visited previously. 
                 {
                     return this.WordSearchZigZagHelper(matrix, word, rowd, cold, visitedArray,  wordCount + 1, wordStr + matrix[rowd, cold]);
                 }

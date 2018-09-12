@@ -47,6 +47,7 @@
     <Compile Include="Arrays\AddTwoNumbersProblem.cs" />
     <Compile Include="Arrays\ClockSum.cs" />
     <Compile Include="Arrays\LengthOfLongestSubStringProblem.cs" />
+    <Compile Include="Arrays\MedianOfArray.cs" />
     <Compile Include="Arrays\SearchInArrays.cs" />
     <Compile Include="Arrays\TwoSumProblem.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="PlayGround.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String\PhoneLetterCombinationLexicographical.cs" />
+    <Compile Include="String\LexicographicOrder.cs" />
     <Compile Include="String\ZigZagDisplayCharacters.cs" />
   </ItemGroup>
   <ItemGroup>
