@@ -28,6 +28,7 @@ namespace LeetCode.String
                     characterMap[c] = 1;
                 }
             }
+
             var outputOrder = new List<string>();
             this.PrintLexicographicOrderHelper(characterMap.Keys.ToArray(), characterMap.Values.ToArray(),  new char[characters.Length], 0, outputOrder);
 
@@ -67,6 +68,8 @@ namespace LeetCode.String
             List<string> expectedOutput = new List<string> { "ABC", "ACB", "BAC", "BCA", "CAB", "CBA"};
 
             List <string>  actualOutput = this.PrintLexicographicOrder("ABC");
+
+            actualOutput = this.PrintLexicographicOrder("AABC");
         }
     }
 }

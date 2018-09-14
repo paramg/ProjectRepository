@@ -8,8 +8,28 @@ using System.Threading.Tasks;
 namespace LeetCode.Arrays
 {
     [TestClass]
-    public class ClockSum
+    public class CombinationSum
     {
+        public List<int> RangeSum(int[] array, int k)
+        {
+            int sum = 0;
+            // initialize sum from 0 through k
+            for (int i=0; i< k; i++)
+            {
+                sum += array[i];
+            }
+
+            List<int> result_Array = new List<int>{ sum };
+            for (int i=k; i< array.Length; i++)
+            {
+                int intermediateSum = array[i] + result_Array[i - k] - array[i - k];
+
+                result_Array.Add(intermediateSum);
+            }
+
+            return result_Array;
+        }
+
         public List<List<int>> combinationSum(int[] candidates, int target)
         {
             List<List<int>> result = new List<List<int>>();
@@ -80,6 +100,12 @@ namespace LeetCode.Arrays
 
             // this.combinationSum(clockNumbers, 30);
             List<List<int>> result = this.TargetSum(clockNumbers, 31);
+        }
+
+        [TestMethod]
+        public void TestRangeSum()
+        {
+            this.RangeSum(new[] { 1, 2, 3, 4, 5 }, 3);
         }
     }
 }

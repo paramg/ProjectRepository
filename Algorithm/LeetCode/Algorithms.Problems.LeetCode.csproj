@@ -45,14 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\AddTwoNumbersProblem.cs" />
-    <Compile Include="Arrays\ClockSum.cs" />
+    <Compile Include="Arrays\CombinationSum.cs" />
     <Compile Include="Arrays\LengthOfLongestSubStringProblem.cs" />
     <Compile Include="Arrays\MedianOfArray.cs" />
     <Compile Include="Arrays\SearchInArrays.cs" />
     <Compile Include="Arrays\TwoSumProblem.cs" />
+    <Compile Include="BackTrack\BackTrackProblems.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
     <Compile Include="LinkedList\MergeTwoLists.cs" />
     <Compile Include="LinkedList\RemoveNthNodeFromList.cs" />
+    <Compile Include="Matrix\MatrixProblemsBFS.cs" />
     <Compile Include="Matrix\RotationMatrix.cs" />
     <Compile Include="Matrix\WordSearchProblem.cs" />
     <Compile Include="MeetingRoom\Meeting.cs" />
