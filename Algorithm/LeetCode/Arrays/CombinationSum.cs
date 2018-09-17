@@ -20,7 +20,7 @@ namespace LeetCode.Arrays
             }
 
             List<int> result_Array = new List<int>{ sum };
-            for (int i=k; i< array.Length; i++)
+            for (int i=1; i< array.Length; i++)
             {
                 int intermediateSum = array[i] + result_Array[i - k] - array[i - k];
 

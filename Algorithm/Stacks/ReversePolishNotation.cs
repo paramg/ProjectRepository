@@ -45,7 +45,6 @@ namespace Algorithms.Problem.Stacks
                 }
             }
 
-
             return Double.Parse(stack.Pop());
         }
 
@@ -59,8 +58,7 @@ namespace Algorithms.Problem.Stacks
 
             return double.Parse((string)row["expression"]);
         }
-
-
+        
         [TestMethod]
         public void Test()
         {
