@@ -45,18 +45,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\AddTwoNumbersProblem.cs" />
+    <Compile Include="Arrays\ArrayManipulation.cs" />
     <Compile Include="Arrays\CombinationSum.cs" />
+    <Compile Include="Arrays\KMostFrequentElement.cs" />
     <Compile Include="Arrays\LengthOfLongestSubStringProblem.cs" />
     <Compile Include="Arrays\MedianOfArray.cs" />
+    <Compile Include="Arrays\MergeTwoSortedArray.cs" />
     <Compile Include="Arrays\SearchInArrays.cs" />
+    <Compile Include="Arrays\SlidingWindowArray.cs" />
+    <Compile Include="Arrays\SmallestSubArraySum.cs" />
+    <Compile Include="Arrays\StringBackTracking.cs" />
     <Compile Include="Arrays\SubArray.cs" />
     <Compile Include="Arrays\TwoSumProblem.cs" />
     <Compile Include="BackTrack\BackTrackProblems.cs" />
+    <Compile Include="BackTrack\BoggleGame.cs" />
+    <Compile Include="BackTrack\NQueenProblem.cs" />
+    <Compile Include="BackTrack\TrieDataStructure.cs" />
+    <Compile Include="Interviews\AmazonPhoneScreening.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
     <Compile Include="LinkedList\MergeTwoLists.cs" />
     <Compile Include="LinkedList\RemoveNthNodeFromList.cs" />
     <Compile Include="Matrix\MatrixArraySearch.cs" />
     <Compile Include="Matrix\MatrixProblemsBFS.cs" />
+    <Compile Include="Matrix\MaximumNumberOfSquares.cs" />
     <Compile Include="Matrix\RotationMatrix.cs" />
     <Compile Include="Matrix\WordSearchProblem.cs" />
     <Compile Include="MeetingRoom\Meeting.cs" />
@@ -72,7 +83,19 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Trees\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataStructures\Trees\DataStructures.Libraries.Trees.csproj">
+      <Project>{845e0ca8-ac51-4bae-95d7-60680cb4a44b}</Project>
+      <Name>DataStructures.Libraries.Trees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BinaryTree\Algorithms.Problem.BinaryTree.csproj">
+      <Project>{4a8c3be7-a268-451a-9b8f-234ed3789866}</Project>
+      <Name>Algorithms.Problem.BinaryTree</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -45,6 +45,7 @@ namespace Algorithms.Problem.Stacks
 
             this.Counter += 1;
 
+            // if it's odd move the middle element.
             if (this.Counter > 1 && !(this.Counter % 2 == 0))
             {
                 middleElement = middleElement.next;

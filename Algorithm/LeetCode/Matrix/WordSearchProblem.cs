@@ -66,6 +66,26 @@ namespace LeetCode.Matrix
             }
         }
 
+        
+        public bool WordSearchZigZag(char[,] board, string word)
+        {
+            bool[,] visitedArray = new bool[board.GetLength(0), board.GetLength(1)]; 
+            for(int i=0; i< board.GetLength(0); i++)
+            {
+                for (int j=0; j< board.GetLength(1); j++)
+                {
+                    if (board[i,j] == word[0])
+                    {
+                        bool result = this.WordSearchZigZagHelper(board, word, i, j, visitedArray, 1, word[0].ToString());
+
+                        if (result) return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public bool WordSearchZigZagHelper(char[,] matrix, string word, int row, int col, bool[,] visitedArray, int wordCount, string wordStr)
         {
             if (wordStr == word)
@@ -85,30 +105,11 @@ namespace LeetCode.Matrix
                     && matrix[rowd, cold] == word[wordCount] // check for char that matches 
                     && !visitedArray[rowd, cold])  // check if it's already visited previously. 
                 {
-                    return this.WordSearchZigZagHelper(matrix, word, rowd, cold, visitedArray,  wordCount + 1, wordStr + matrix[rowd, cold]);
+                    return this.WordSearchZigZagHelper(matrix, word, rowd, cold, visitedArray, wordCount + 1, wordStr + matrix[rowd, cold]);
                 }
             }
 
             visitedArray[row, col] = false;
-
-            return false;
-        }
-
-        public bool Exist(char[,] board, string word)
-        {
-            bool[,] visitedArray = new bool[board.GetLength(0), board.GetLength(1)]; 
-            for(int i=0; i< board.GetLength(0); i++)
-            {
-                for (int j=0; j< board.GetLength(1); j++)
-                {
-                    if (board[i,j] == word[0])
-                    {
-                        bool result = this.WordSearchZigZagHelper(board, word, i, j, visitedArray, 1, word[0].ToString());
-
-                        if (result) return true;
-                    }
-                }
-            }
 
             return false;
         }
@@ -133,9 +134,9 @@ namespace LeetCode.Matrix
         {
             char[,] matrix = { { 'A', 'B', 'C', 'S'}, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'F' } };
 
-            Assert.IsTrue(this.Exist(matrix, "ABCCED"));
-            Assert.IsTrue(this.Exist(matrix, "SFE"));
-            Assert.IsFalse(this.Exist(matrix, "ABCB"));
+            Assert.IsTrue(this.WordSearchZigZag(matrix, "ABCCED"));
+            Assert.IsTrue(this.WordSearchZigZag(matrix, "SFE"));
+            Assert.IsFalse(this.WordSearchZigZag(matrix, "ABCB"));
         }
     }
 }
