@@ -15,25 +15,6 @@ namespace Design.Libraries.LRUCache
         public DoubleLinkedListNode head;
         public DoubleLinkedListNode rear;
 
-        public bool IsEmpty()
-        {
-            return this.head == null 
-                && this.rear == null
-                && this.Counter == 0;
-        }
-
-        public bool CheckIfElementExists(int pageNumber, out DoubleLinkedListNode node)
-        {
-            return this.lruCacheHashSet.TryGetValue(pageNumber, out node);
-        }
-
-        public DoubleLinkedListNode CreateCacheElement(int pageNumber)
-        {
-            var newElement = new DoubleLinkedListNode(pageNumber);
-
-            return newElement;
-        }
-
         public void AddOrRemovePageNumber(int pageNumber)
         {
             DoubleLinkedListNode existingElement;
@@ -58,7 +39,26 @@ namespace Design.Libraries.LRUCache
             this.Enqueue(pageNumber);
         }
 
-        public void Enqueue(int pageNumber)
+        private DoubleLinkedListNode CreateCacheElement(int pageNumber)
+        {
+            var newElement = new DoubleLinkedListNode(pageNumber);
+
+            return newElement;
+        }
+
+        private bool IsEmpty()
+        {
+            return this.head == null
+                && this.rear == null
+                && this.Counter == 0;
+        }
+
+        private bool CheckIfElementExists(int pageNumber, out DoubleLinkedListNode node)
+        {
+            return this.lruCacheHashSet.TryGetValue(pageNumber, out node);
+        }
+
+        private void Enqueue(int pageNumber)
         {
             // Create the new cache element to be enqueued.
             DoubleLinkedListNode newElement = this.CreateCacheElement(pageNumber);
@@ -72,6 +72,7 @@ namespace Design.Libraries.LRUCache
             else
             {
                 // Insert the new element to the head.
+                this.head.Previous = newElement;
                 newElement.Next = this.head;
                 newElement.Previous = null;
                 this.head = newElement;
@@ -83,7 +84,7 @@ namespace Design.Libraries.LRUCache
             lruCacheHashSet.Add(pageNumber, newElement);
         }
 
-        public void Dequeue()
+        private void Dequeue()
         {
             if (this.IsEmpty())
             {
@@ -94,6 +95,7 @@ namespace Design.Libraries.LRUCache
             DoubleLinkedListNode elementToRemove = this.rear;
 
             this.rear = elementToRemove.Previous;
+            this.rear.Next = null;
 
             // Reove the element from dictionary.
             this.lruCacheHashSet.Remove(elementToRemove.PageNumber);
