@@ -10,7 +10,7 @@ namespace DataStructures.Libraries.Trees
     [TestClass]
     public class RootToLeafSum
     {
-        public bool FindRootToLeafSumPath(BinaryTreeNode root, int sum, List<int> result)
+        public bool FindRootToLeafSumPath(BinaryTreeNode root, double sum, List<double> result)
         {
             // check if it's leaf node
             if (root.Left == null && root.Right == null)
@@ -54,7 +54,7 @@ namespace DataStructures.Libraries.Trees
            root.Right.Left = new BinaryTreeNode(25);
            root.Right.Right = new BinaryTreeNode(35);
 
-            List<int> listArray = new List<int>();
+            List<double> listArray = new List<double>();
 
             bool isTargetExist = this.FindRootToLeafSumPath(root, 80, listArray);
         }

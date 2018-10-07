@@ -55,8 +55,75 @@ namespace Algorithms.Problem.BinaryTree
             return leftNode != null ? leftNode : rightNode;
         }
 
+        public BinaryTreeNode FindLcaUsingParentPointer(BinaryTreeNode root, BinaryTreeNode node1, BinaryTreeNode node2)
+        {
+            BinaryTreeNode lca = null;
+
+            // build hashtable using parent node.
+            Dictionary<double, double> childParent = new Dictionary<double, double>();
+
+            // take node1 to build the has map.
+            while(node1 != null && node1.Parent != null)
+            {
+                childParent.Add(node1.Value, node1.Parent.Value);
+                node1 = node1.Parent;
+            }
+
+            // add the root and it's parent to null
+            childParent.Add(node1.Value, -1);
+
+            while(node2 != null)
+            {
+                if (childParent.ContainsKey(node2.Value))
+                {
+                    lca = node2;
+
+                    // break and this is the lowest ancestor.
+                    break;
+                }
+
+                node2 = node2.Parent;
+            }
+
+            return lca;
+        }
+
         [TestMethod]
-        public void ValidateTreeSpiralOrder()
+        public void ValidateLCAUsingParentPointer()
+        {
+            BinaryTreeNode root = new BinaryTreeNode(20);
+            root.Left = new BinaryTreeNode(8);
+            root.Right = new BinaryTreeNode(22);
+
+            root.Left.Parent = root;
+            root.Right.Parent = root;
+
+            root.Left.Left = new BinaryTreeNode(4);
+            root.Left.Right = new BinaryTreeNode(12);
+
+            root.Left.Left.Parent = root.Left;
+            root.Left.Right.Parent = root.Left;
+
+            root.Left.Right.Left = new BinaryTreeNode(10);
+            root.Left.Right.Right = new BinaryTreeNode(14);
+
+            root.Left.Right.Left.Parent = root.Left.Right;
+            root.Left.Right.Right.Parent = root.Left.Right;
+
+            BinaryTreeNode node1 = root.Left.Right.Left;
+            BinaryTreeNode node2 = root.Left.Right.Right;
+
+            BinaryTreeNode lca = this.FindLcaUsingParentPointer(root, node1, node2);
+            Assert.AreEqual(lca.Value, 12);
+
+            node1 = root.Left;
+            node2 = root.Left.Right.Right;
+            lca = this.FindLcaUsingParentPointer(root, node1, node2);
+            Assert.AreEqual(lca.Value, 8);
+        }
+
+        [TestMethod]
+        public void ValidateLCA()
         {
             var binarySearchTree = new BinarySearchTree();
             binarySearchTree.PopulateDefaultBalanceTree();

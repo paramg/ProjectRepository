@@ -27,16 +27,16 @@ namespace Algorithms.Problem.BinaryTree
             // in such cases keep going next until we find the next node.
             // For eg1: consider the following tree:
             ///         20
-            ///        /  \
+            ///         /  \
             ///      10    30
-            ///     /     /  \
-            ///    5     25   35
+            ///     /        /  \
+            ///    5      25   35
             ///    
             // For eg2: consider the following tree:
             ///         20
-            ///        /  \
+            ///         /  \
             ///      10    30
-            ///     /  \     \
+            ///     /   \       \
             ///    5    12    35
 
             // depth wise traversal

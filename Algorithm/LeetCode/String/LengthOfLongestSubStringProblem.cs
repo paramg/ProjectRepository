@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCode.Arrays
+namespace LeetCode.String
 {
     [TestClass]
     public class LengthOfLongestSubStringProblem
@@ -57,7 +57,7 @@ namespace LeetCode.Arrays
         {
             int length = this.LengthOfLongestSubstring("abcabcdd");
 
-            Assert.AreEqual(4, length); // ans: abcdd
+            Assert.AreEqual(4, length); // ans: abcd
 
             length = this.LengthOfLongestSubstring("ABDEFGABEF");
 

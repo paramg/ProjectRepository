@@ -45,9 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectNextNode.cs" />
+    <Compile Include="DistanceBetweenTwoNodes.cs" />
     <Compile Include="LevelSpiralOrder.cs" />
     <Compile Include="LowestCommonAncestor.cs" />
+    <Compile Include="MaxDifferenceForNodeAndAncestor.cs" />
     <Compile Include="PathRootToLeaf.cs" />
+    <Compile Include="PrintCommonPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootToLeafSum.cs" />
     <Compile Include="SerializeAndDeserialize.cs" />

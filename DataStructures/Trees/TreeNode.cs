@@ -17,11 +17,11 @@ namespace DataStructures.Libraries.Trees
         public TreeNode[] ChildNodes;
         public int value = int.MinValue;
         public bool isLeafNode;
+        public TreeNode parent;
 
         public TreeNode(int value)
         {
             this.value = value;
-            this.ChildNodes = new TreeNode[ChildrenNodeSize];
         }
 
         public void InsertNewNode(TreeNode root, int parent, int value)

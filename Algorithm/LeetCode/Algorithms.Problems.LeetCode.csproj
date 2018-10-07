@@ -49,7 +49,10 @@
     <Compile Include="Arrays\CombinationSum.cs" />
     <Compile Include="Arrays\DuplicatesInArray.cs" />
     <Compile Include="Arrays\KMostFrequentElement.cs" />
-    <Compile Include="Arrays\LengthOfLongestSubStringProblem.cs" />
+    <Compile Include="Arrays\SingleNumber.cs" />
+    <Compile Include="Interviews\FaceBookPhoneScreening.cs" />
+    <Compile Include="String\EditDistanceProblem.cs" />
+    <Compile Include="String\LengthOfLongestSubStringProblem.cs" />
     <Compile Include="Arrays\LongestConsecutiveSequence.cs" />
     <Compile Include="Arrays\MedianOfArray.cs" />
     <Compile Include="Arrays\MergeTwoSortedArray.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="MeetingRoom\MeetingRoomProblems.cs" />
     <Compile Include="PlayGround.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\LongestCommonPrefix.cs" />
     <Compile Include="String\MultiplyTwoStrings.cs" />
     <Compile Include="String\EvaluateExpression.cs" />
     <Compile Include="String\PhoneLetterCombinationLexicographical.cs" />

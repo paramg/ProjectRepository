@@ -66,7 +66,7 @@ namespace DataStructures.Libraries.Trees
             }
         }
 
-        public BinaryTreeNode Delete(BinaryTreeNode root, int data)
+        public BinaryTreeNode Delete(BinaryTreeNode root, double data)
         {
             if (root == null) return null;
 

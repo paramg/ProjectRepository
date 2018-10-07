@@ -8,15 +8,19 @@ namespace DataStructures.Libraries.Trees
 {
     public class BinaryTreeNode
     {
+        public BinaryTreeNode Parent { get; set; }
+
         public BinaryTreeNode Left { get; set; }
 
         public BinaryTreeNode Right { get; set; }
 
         public BinaryTreeNode Next { get; set; }
 
-        public int Value { get; set; }
+        public bool IsLeftInStack { get; set; }
 
-        public BinaryTreeNode(int data)
+        public double Value { get; set; }
+
+        public BinaryTreeNode(double data)
         {
             this.Value = data;
         }

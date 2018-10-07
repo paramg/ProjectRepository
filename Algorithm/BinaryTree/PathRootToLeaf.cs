@@ -11,25 +11,38 @@ namespace Algorithms.Problem.BinaryTree
     [TestClass]
     public class PathRootToLeaf
     {
-        BinaryTreeNode Root { get; }
-
         public PathRootToLeaf()
         {
         }
 
-        public PathRootToLeaf(BinaryTreeNode root)
+        public bool PathToSpecificNode(BinaryTreeNode root, BinaryTreeNode node, List<double> array)
         {
-            this.Root = root;
+            if (root == null) return false;
+
+            if (root == node)
+            {
+                array.Add(root.Value);
+                return true;
+            }
+
+            if (this.PathToSpecificNode(root.Left, node, array) || 
+                this.PathToSpecificNode(root.Right, node, array))
+            {
+                array.Add(root.Value);
+                return true;
+            }
+
+            return false;
         }
 
-        public void PathRootToLeafImpl()
+        public void PathRootToLeafImpl(BinaryTreeNode root)
         {
-            int[] path = new int[100];
+            double[] path = new double[100];
 
-            this.PathRootToLeafImpl(this.Root, 0, path);
+            this.PathRootToLeafImpl(root, 0, path);
         }
 
-        public void PathRootToLeafImpl(BinaryTreeNode root, int counter, int[] path)
+        public void PathRootToLeafImpl(BinaryTreeNode root, int counter, double[] path)
         {
             if (root == null) return;
 
@@ -58,9 +71,31 @@ namespace Algorithms.Problem.BinaryTree
             var binarySearchTree = new BinarySearchTree();
             binarySearchTree.PopulateDefaultBalanceTree();
 
-            var pathRootToLeaf = new PathRootToLeaf(binarySearchTree.Root);
+            var pathRootToLeaf = new PathRootToLeaf();
 
-            pathRootToLeaf.PathRootToLeafImpl();
+            pathRootToLeaf.PathRootToLeafImpl(binarySearchTree.Root);
+        }
+
+        [TestMethod]
+        public void TestPathToSpecificNode()
+        {
+            BinaryTreeNode root = new BinaryTreeNode(5);
+            root.Left = new BinaryTreeNode(10);
+            root.Right = new BinaryTreeNode(15);
+
+            root.Left.Left = new BinaryTreeNode(20);
+            root.Left.Right = new BinaryTreeNode(25);
+
+            root.Right.Left = new BinaryTreeNode(30);
+            root.Right.Right = new BinaryTreeNode(35);
+
+            root.Left.Right.Right = new BinaryTreeNode(45);
+
+            BinaryTreeNode node = root.Left.Right.Right;
+
+            List<double> array = new List<double>();
+
+            this.PathToSpecificNode(root, node, array);
         }
     }
 }

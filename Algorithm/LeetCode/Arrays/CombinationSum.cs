@@ -13,7 +13,7 @@ namespace LeetCode.Arrays
         public List<List<int>> combinationSum(int[] candidates, int target)
         {
             List<List<int>> result = new List<List<int>>();
-
+            
             if (candidates == null || candidates.Length == 0) return result;
 
             List<int> current = new List<int>();

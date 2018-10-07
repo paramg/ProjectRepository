@@ -34,6 +34,37 @@ namespace LeetCode.Interviews
             PID-1 : N1,N2,N3
     */
 
+        private TreeNode Clone(TreeNode root, TreeNode clone, int value, int position)
+        {
+            // if node is null then return new node
+            if (root.ChildNodes == null)
+                return new TreeNode(value);
+
+            while (root != null)
+            {
+                TreeNode node = root.ChildNodes != null ? root.ChildNodes[position] : null;
+
+                value = node != null ? node.value : 0;
+                if (clone.ChildNodes == null && root.ChildNodes != null)
+                {
+                    clone.ChildNodes = new TreeNode[root.ChildNodes.Length];
+                }
+
+                TreeNode newNode = this.Clone(node, clone.ChildNodes[position], value, position);
+
+                if (clone != null)
+                {
+                    // set the child and parent for that position.
+                    clone.ChildNodes[position] = newNode;
+                    clone.ChildNodes[position].parent = clone;
+
+                    position = position == clone.ChildNodes.Length - 1 ? 0 : position + 1;
+                    // clone = clone.ChildNodes[position];
+                }
+            }
+
+            return clone;
+        }
         public void GetProductHierarchy(BinaryTreeNode root)
         {
         }

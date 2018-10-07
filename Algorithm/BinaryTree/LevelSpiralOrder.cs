@@ -22,9 +22,9 @@ namespace Algorithms.Problem.Trees
             this.Root = root;
         }
 
-        public int[] PrintSpiralOrder()
+        public double[] PrintSpiralOrder()
         {
-            List<int> spiralOrderArray = new List<int>();
+            List<double> spiralOrderArray = new List<double>();
 
             // 1. Use two stacks S1 and S2
             // 2. Push first item to Stack S1
@@ -92,7 +92,7 @@ namespace Algorithms.Problem.Trees
 
             var spiralOrder = new LevelSpiralOrder(binarySearchTree.Root);
 
-            int[] spiralOrderActual = spiralOrder.PrintSpiralOrder();
+            double[] spiralOrderActual = spiralOrder.PrintSpiralOrder();
 
             for(int i=0; i < spiralOrderExpected.Length; i++)
             {
