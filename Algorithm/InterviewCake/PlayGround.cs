@@ -18,21 +18,22 @@ namespace Algorithms.Problem.InterviewCake
                 return new HashSet<string>(inputString.Select(c => new string(c, 1)));
             }
 
-            var allCharsExceptLast = inputString.Substring(0, inputString.Length - 1);
+            string allCharsExceptLast = inputString.Substring(0, inputString.Length - 1);
             char lastChar = inputString[inputString.Length - 1];
 
             // Recursive call: get all possible permutations for all chars except last
-            var permutationsOfAllCharsExceptLast = GetPermutations(allCharsExceptLast);
+            ISet<string> permutationsOfAllCharsExceptLast = this.GetPermutations(allCharsExceptLast);
 
             // Put the last char in all possible positions for each of the above permutations
             var permutations = new HashSet<string>();
-            foreach (var permutationOfAllCharsExceptLast in permutationsOfAllCharsExceptLast)
+            foreach (string permutationOfAllCharsExceptLast in permutationsOfAllCharsExceptLast)
             {
                 for (int position = 0; position <= allCharsExceptLast.Length; position++)
                 {
-                    var permutation = permutationOfAllCharsExceptLast.Substring(0, position)
+                    string permutation = permutationOfAllCharsExceptLast.Substring(0, position)
                         + lastChar
                         + permutationOfAllCharsExceptLast.Substring(position);
+
                     permutations.Add(permutation);
                 }
             }
@@ -43,7 +44,7 @@ namespace Algorithms.Problem.InterviewCake
         [TestMethod]
         public void TestPermutations()
         {
-            GetPermutations("cats");
+            this.GetPermutations("cats");
         }
     }
 }

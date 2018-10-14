@@ -16,7 +16,7 @@ namespace DataStructures.Libraries.Graph
 
         #region Graph nodes initialization.
 
-        #region This variable is used in the code (just for understanding).
+        #region This variable is NOT used in the code (just for understanding).
         Dictionary<string, string[]> network = new Dictionary<string, string[]>
         {
             { "Min",     new[] { "William", "Jayden", "Omar" } },
@@ -185,7 +185,7 @@ namespace DataStructures.Libraries.Graph
                 if (!adjacent.isVisited)
                 {
                     adjacent.isVisited = true;
-                    DetectCycleHelper(adjacent);
+                    this.DetectCycleHelper(adjacent);
                 }
             }
 

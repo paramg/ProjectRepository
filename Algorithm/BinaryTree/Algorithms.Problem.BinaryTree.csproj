@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BalanceTreeChecker.cs" />
     <Compile Include="ConnectNextNode.cs" />
     <Compile Include="DistanceBetweenTwoNodes.cs" />
     <Compile Include="LevelSpiralOrder.cs" />
