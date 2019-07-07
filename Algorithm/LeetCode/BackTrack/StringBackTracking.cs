@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCode.Arrays
+namespace LeetCode.BackTrack
 {
     [TestClass]
     public class StringBackTracking

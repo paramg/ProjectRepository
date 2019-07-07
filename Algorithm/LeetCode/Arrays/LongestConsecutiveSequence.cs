@@ -46,7 +46,7 @@ namespace LeetCode.Arrays
         [TestMethod]
         public void TestLongestConsecutiveSequence()
         {
-            int longestValue = this.LongestConsecutiveSequenceInArray(new[] { 4, 1, 2, 6, 5 });
+            int longestValue = this.LongestConsecutiveSequenceInArray(new[] { 4, 1, 6, 5, 2 });
 
             Assert.AreEqual(longestValue, 3);
         }

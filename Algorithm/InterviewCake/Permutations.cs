@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Algorithms.Problem.InterviewCake
 {
     [TestClass]
-    public class PlayGround
+    public class Permutations
     {
         public ISet<string> GetPermutations(string inputString)
         {
@@ -44,7 +44,7 @@ namespace Algorithms.Problem.InterviewCake
         [TestMethod]
         public void TestPermutations()
         {
-            this.GetPermutations("cats");
+            var permutations = this.GetPermutations("cats");
         }
     }
 }

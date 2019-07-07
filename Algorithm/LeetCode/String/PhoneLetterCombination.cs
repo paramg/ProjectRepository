@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LeetCode.String
 {
     [TestClass]
-    public class PhoneLetterCombinationLexicographical
+    public class PhoneLetterCombination
     {
         private List<string> letterList = new List<string> { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
@@ -18,7 +18,7 @@ namespace LeetCode.String
 
             // if digits = 2
             // this.LetterCombinationHelper("23", 2, new char[2], 0, letterCombination);
-            this.LetterCombinationHelper(digits, digits.Length, new char[digits.Length], 0, letterCombination);
+            this.LetterCombinationHelper(digits, new char[digits.Length], 0, letterCombination);
 
             return letterCombination;
         }
@@ -31,9 +31,9 @@ namespace LeetCode.String
         /// <param name="output">The output chars to be print for every iteration, like ad, ae, af.</param>
         /// <param name="count">The count that tracks the length of digits for every recursion call.</param>
         /// <param name="letterCombination">The letter combination result where intermediate results are added.</param>
-        public void LetterCombinationHelper(string digits, int len, char[] output, int count, IList<string> letterCombination)
+        public void LetterCombinationHelper(string digits, char[] output, int count, IList<string> letterCombination)
         {
-            if (len == count)
+            if (digits.Length == count)
             {
                 // store the result, if len is equal to the count.
                 letterCombination.Add(new string(output));
@@ -51,7 +51,7 @@ namespace LeetCode.String
             for (int i = 0; i < letterList[index].Length; i++)
             {
                 output[count] = letterList[index][i];
-                this.LetterCombinationHelper(digits, len, output, count + 1, letterCombination);
+                this.LetterCombinationHelper(digits, output, count + 1, letterCombination);
             }
         }
 

@@ -21,8 +21,12 @@ namespace Design.Libraries.ParallelTasksProcessor
                 throw new Exception("There exists a cycle.");
             }
 
+            // Build the topological stack by resolving the dependencies in DAG.
+            // The topoplogical stack will contain the dependency graph that contains the least dependent tasks will be on the top while the most dependent ones will be at the bottom.
+            graphTaskJobs.DFS();
+
             // Process jobs in parallel otherwise.
-            while(graphTaskJobs.TopologicalOrderStack.Any())
+            while (graphTaskJobs.TopologicalOrderStack.Any())
             {
                 TaskJob taskJob = (TaskJob) graphTaskJobs.TopologicalOrderStack.Pop();
                 await taskJob.ExecteTask();

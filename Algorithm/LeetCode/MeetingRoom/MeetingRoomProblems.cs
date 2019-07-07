@@ -25,6 +25,44 @@ namespace LeetCode.MeetingRoom
             return true;
         }
 
+        public int GetNumberOfMeetingRooms(List<Meeting> meetings)
+        {
+            if (meetings == null || meetings.Count == 0) return 0;
+
+            // use sorted set for min heap in c#
+            var heap = new SortedSet<Meeting>(Comparer<Meeting>.Create((m1,m2) =>
+            {
+                int result = m1.EndTime.CompareTo(m2.EndTime);
+                return result == 0 ? 1 : result;
+            }
+            ));
+
+            // sort by start date
+            meetings.Sort(Comparer<Meeting>.Create((m1, m2) => m1.StartTime.CompareTo(m2.StartTime)));
+            heap.Add(meetings.First());
+
+            for(int i=1; i< meetings.Count; i++)
+            {
+                Meeting currentMeeting = heap.First();
+                bool isRemoved = heap.Remove(currentMeeting);
+                if (!isRemoved) throw new Exception("Could not remove the meeting.");
+
+                Meeting newMeeting = meetings[i];
+                if (newMeeting.StartTime >= currentMeeting.EndTime)
+                {
+                    currentMeeting.EndTime = newMeeting.EndTime;
+                }
+                else
+                {
+                    heap.Add(newMeeting);
+                }
+
+                heap.Add(currentMeeting);
+            }
+
+            return heap.Count;
+        }
+
         public List<Meeting> InsertMeeting(List<Meeting> meetings, Meeting newMeeting)
         {
             meetings.Sort();
@@ -121,6 +159,23 @@ namespace LeetCode.MeetingRoom
         {
             Meeting[] meetings1 = new Meeting[] { new Meeting(0, 30), new Meeting(15, 20), new Meeting(20, 40), new Meeting(45, 60), new Meeting(50, 70) };
             List<Meeting> mergedMeeting = this.MergeMeetings(meetings1.ToList());
+        }
+
+        [TestMethod]
+        public void TestNumberOfMeetingRooms()
+        {
+            //int[][] intervals = { new int[] { 0, 30}, new int[] { 5,10 }, new int[] { 15,20 }, new int[] { 20, 35} };
+            int[][] intervals = { new int[] { 5, 8 }, new int[] { 6, 8 } };
+            List<Meeting> meetingArray = new List<Meeting>();
+
+            for (int i= 0; i< intervals.Length; i++)
+            {
+                meetingArray.Add(new Meeting(intervals[i][0], intervals[i][1]));
+            }
+
+            int noOfMeetingRooms = this.GetNumberOfMeetingRooms(meetingArray);
+
+            Assert.AreEqual(noOfMeetingRooms, 2);
         }
     }
 }

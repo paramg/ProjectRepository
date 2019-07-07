@@ -67,6 +67,9 @@ namespace Algorithms.Problem.Tries
                     TrieNode child = root.Children[index1];
                     if (!this.HasChildNodes(child))
                     {
+                        // dont delete if it's the end of some other word.
+                        // but delete if it's the end of the current string.
+                        // the position will be equal to the value.Length - 1 if it's the end of current string (when using recursion the postion will be value of the last char in the string)
                         if (child.isWordEnd && position == value.Length - 1)
                         {
                             root.Children[index1] = null;

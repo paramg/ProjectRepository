@@ -30,7 +30,6 @@ namespace Algorithms.Problem.Tries
 
             // node is current at the end of the prefix
             // fetch all the strings starting from the current node.
-
             List<string> list = new List<string>();
             this.AutoCompleteHelper(node, prefix, list);
 

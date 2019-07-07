@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoComplete.cs" />
+    <Compile Include="PalindromePairsUsingTries.cs" />
     <Compile Include="PrintValidWordsInArray.cs" />
     <Compile Include="WordBreak.cs" />
     <Compile Include="TrieOperation.cs" />

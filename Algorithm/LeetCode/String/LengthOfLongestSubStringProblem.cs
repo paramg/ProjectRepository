@@ -55,6 +55,7 @@ namespace LeetCode.String
         [TestMethod]
         public void TestingMethod_LengthOfLongestSubstring()
         {
+            // Length of longest substring withour repeating.
             int length = this.LengthOfLongestSubstring("abcabcdd");
 
             Assert.AreEqual(4, length); // ans: abcd

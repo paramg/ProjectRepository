@@ -20,7 +20,7 @@ namespace LeetCode.Arrays
             }
 
             List<int> result_Array = new List<int> { sum };
-            for (int i = 1; i < array.Length; i++)
+            for (int i = k; i < array.Length; i++)
             {
                 int intermediateSum = array[i] + result_Array[i - k] - array[i - k];
 
@@ -31,7 +31,7 @@ namespace LeetCode.Arrays
         }
 
         /// <summary>
-        /// Uses the double ended queue to push the elements.
+        /// Uses the double ended queue (deque) to push the elements.
         /// maintain the deque such that the max (of the range) is in the front - store only the index in deque
         /// and if the next element in array is less than element at back of deque then push the element to back
         /// (the reason is it could be max at some point in the range)
@@ -49,7 +49,7 @@ namespace LeetCode.Arrays
             for (int i=0; i<= array.Length; i++)
             {
                 // pop from front if the element is out of the range.
-                if (!deque.isEmpty() && array[deque.front()] == i -k)
+                if (!deque.isEmpty() && deque.front() == i -k)
                 {
                     deque.pop_front();
                 }
@@ -75,7 +75,7 @@ namespace LeetCode.Arrays
         [TestMethod]
         public void TestRangeSum()
         {
-            this.RangeSum(new[] { 1, 2, 3, 4, 5 }, 3);
+            List<int> rangeSum = this.RangeSum(new[] { 1, 2, 3, 4, 5 }, 3);
         }
 
         [TestMethod]
