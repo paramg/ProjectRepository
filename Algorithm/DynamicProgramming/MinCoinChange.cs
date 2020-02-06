@@ -68,9 +68,9 @@ namespace Algorithms.Problem.Arrays
         [TestMethod]
         public void TestMinCoinChange()
         {
-            int result = this.GetMinCoinsForBalance(19, new []{ 1, 6, 10 });
+            int result = this.GetMinCoinsForBalance(15, new []{ 1, 5, 10 });
 
-            Assert.AreEqual(result, 4);
+            Assert.AreEqual(result, 2);
         }
     }
 }
