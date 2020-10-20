@@ -11,7 +11,7 @@ namespace LeetCode.Interviews
 {
     [TestClass]
     // Date: 9/18/2018
-    public class AmazonPhoneScreening
+    public class PhoneScreening1
     {
         /*
             At amazon products are organized in a hierarchy called browse nodes. 
